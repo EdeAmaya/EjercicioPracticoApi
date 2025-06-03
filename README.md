@@ -149,19 +149,5 @@ La aplicación utiliza una API REST externa para el almacenamiento de datos:
 - **Glass morphism**: Efectos de cristal con backdrop-blur
 - **Responsive design**: Adaptado para todos los dispositivos
 
-## 🔧 Scripts Disponibles
-
-```bash
-# Desarrollo
-npm run dev          # Inicia servidor de desarrollo
-
-# Construcción
-npm run build        # Construye la aplicación para producción
-
-# Vista previa
-npm run preview      # Previsualiza la construcción de producción
-
-# Linting
-npm run lint         # Ejecuta ESLint para verificar código
 ```
 ⭐ ¡Si te gusta este proyecto, no olvides darle una estrella!
