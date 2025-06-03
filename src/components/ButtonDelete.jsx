@@ -3,7 +3,7 @@ const ButtonDelete = ({ type, onClick, text }) => {
       <button
         type={type}
         onClick={onClick}
-        className="bg-red-500 hover:bg-red-600 text-dark font-semibold py-2 px-4 rounded transition-colors"
+        className="bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white font-semibold py-2.5 px-5 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-red-400 hover:border-red-500"
       >
         {text}
       </button>
@@ -11,5 +11,3 @@ const ButtonDelete = ({ type, onClick, text }) => {
   };
    
   export default ButtonDelete;
-   
-   

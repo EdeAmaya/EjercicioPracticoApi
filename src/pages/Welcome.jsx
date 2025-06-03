@@ -1,108 +1,71 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 const Welcome = () => {
   const [showWelcome, setShowWelcome] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => setIsVisible(true), 100);
-  }, []);
+  const navigate = useNavigate();
 
   const handleAccept = () => {
-    setIsVisible(false);
-    setTimeout(() => {
-      setShowWelcome(false);
-      // Aquí iría navigate("/home") en tu aplicación real
-      console.log("Navegando a la página principal...");
-    }, 300);
+    setShowWelcome(false);
+    navigate("/home");
   };
 
   if (!showWelcome) return null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-400 via-red-500 to-pink-600 flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-32 w-24 h-24 bg-yellow-300/20 rounded-full blur-lg animate-bounce"></div>
-        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-white/5 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-20 right-20 w-28 h-28 bg-orange-200/15 rounded-full blur-xl animate-pulse delay-1000"></div>
+    <div className="flex items-center justify-center min-h-screen relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-4 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute top-20 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-4000"></div>
       </div>
 
-      {/* Contenedor principal */}
-      <div className={`relative bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-8 max-w-lg w-full text-center border border-white/20 transform transition-all duration-500 ${
-        isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'
-      }`}>
-        
-        {/* Icono principal con animación */}
-        <div className="mb-6 relative">
-          <div className="inline-block p-6 bg-gradient-to-br from-orange-400 to-red-500 rounded-full shadow-lg transform hover:scale-110 transition-transform duration-300">
-            <div className="text-6xl animate-bounce">👨‍🍳</div>
-          </div>
-          <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full animate-ping"></div>
+      <div className="relative bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 p-12 max-w-lg w-full mx-4 text-center transform hover:scale-105 transition-all duration-300">
+        {/* Chef icon with animation */}
+        <div className="text-8xl mb-6 animate-bounce">
+          👨‍🍳
         </div>
-
-        {/* Título principal */}
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-3">
-          ¡Bienvenido!
+        
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-4">
+          Recetario del Chef Ricardo
         </h1>
         
-        {/* Subtítulo */}
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Recetario del Chef Ricardo
-        </h2>
-
-        {/* Descripción */}
-        <p className="text-gray-600 mb-8 leading-relaxed">
-          Descubre un mundo de sabores únicos. Administra tu colección personal de recetas caseras y comparte la magia de la cocina.
+        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+          ¡Bienvenido a tu cocina digital! 🍽️
+          <br />
+          Descubre, crea y organiza tus recetas favoritas en un solo lugar.
         </p>
 
-        {/* Características destacadas */}
-        <div className="grid grid-cols-2 gap-4 mb-8">
-          <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl">
-            <div className="text-2xl mb-2">📚</div>
-            <p className="text-sm font-medium text-gray-700">Organiza Recetas</p>
+        {/* Feature highlights */}
+        <div className="grid grid-cols-1 gap-4 mb-8 text-sm">
+          <div className="flex items-center justify-center space-x-2 text-gray-700">
+            <span className="text-xl">📝</span>
+            <span>Gestiona tus recetas fácilmente</span>
           </div>
-          <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-xl">
-            <div className="text-2xl mb-2">⏱️</div>
-            <p className="text-sm font-medium text-gray-700">Control de Tiempo</p>
+          <div className="flex items-center justify-center space-x-2 text-gray-700">
+            <span className="text-xl">⏱️</span>
+            <span>Organiza por tiempo de preparación</span>
           </div>
-          <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-xl">
-            <div className="text-2xl mb-2">🍽️</div>
-            <p className="text-sm font-medium text-gray-700">Fácil Gestión</p>
-          </div>
-          <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-4 rounded-xl">
-            <div className="text-2xl mb-2">✨</div>
-            <p className="text-sm font-medium text-gray-700">Interfaz Moderna</p>
+          <div className="flex items-center justify-center space-x-2 text-gray-700">
+            <span className="text-xl">🔍</span>
+            <span>Encuentra tus platillos favoritos</span>
           </div>
         </div>
 
-        {/* Botón de acción */}
         <button
+          type="button"
           onClick={handleAccept}
-          className="group relative w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-300"
+          className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-lg"
         >
-          <span className="relative z-10 flex items-center justify-center">
-            Comenzar mi Aventura Culinaria
-            <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </span>
-          
-          {/* Efecto de brillo */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          ✨ Comenzar a Cocinar
         </button>
-
-        {/* Texto adicional */}
+        
         <p className="text-xs text-gray-500 mt-4">
-          Tu cocina, tus reglas, tus sabores únicos
+          Desarrollado con 💜 para los amantes de la cocina
         </p>
       </div>
-
-      {/* Partículas flotantes */}
-      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-yellow-300 rounded-full animate-ping opacity-70"></div>
-      <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-orange-300 rounded-full animate-pulse opacity-60"></div>
-      <div className="absolute top-1/2 left-1/6 w-1 h-1 bg-red-300 rounded-full animate-bounce opacity-80"></div>
     </div>
   );
 };
