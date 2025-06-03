@@ -1,142 +1,167 @@
 # 👨‍🍳 Recetario del Chef Ricardo
 
-Una aplicación web moderna para gestionar recetas de cocina, desarrollada con React y Vite. Permite crear, editar, eliminar y organizar recetas de manera intuitiva con una interfaz elegante y responsiva.
+Una aplicación web moderna para gestionar y organizar tus recetas favoritas. Desarrollada con React, Vite y TailwindCSS.
 
-## 🚀 Características Principales
+## ✨ Características
 
-- ✨ **Gestión completa de recetas**: Crear, editar, visualizar y eliminar recetas
-- 🎨 **Interfaz moderna**: Diseño responsive con gradientes y animaciones
-- 📱 **Responsive Design**: Adaptable a diferentes dispositivos
-- 🔥 **Notificaciones**: Toast notifications para feedback del usuario
-- 🌈 **Tema moderno**: Interfaz con glassmorphism y efectos visuales
+- 📝 **Crear recetas**: Agrega nuevas recetas con ingredientes, instrucciones y tiempo de preparación
+- ✏️ **Editar recetas**: Modifica tus recetas existentes
+- 🗑️ **Eliminar recetas**: Elimina recetas que ya no necesites
+- 📋 **Lista organizada**: Visualiza todas tus recetas en una tabla organizada
+- ⏱️ **Tiempo de preparación**: Organiza por tiempo de cocción (15 min - 4+ horas)
+- 🎨 **Diseño moderno**: Interfaz atractiva con gradientes y animaciones
+- 📱 **Responsive**: Adaptado para dispositivos móviles y desktop
 
-## ⚙️ Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 
-### Frontend
-- **React 18** - Biblioteca principal para la interfaz de usuario
-- **Vite** - Herramienta de build y desarrollo
-- **React Router DOM** - Enrutado de la aplicación
-- **React Hook Form** - Manejo de formularios
-- **React Hot Toast** - Notificaciones toast
+- **React 18** - Biblioteca de JavaScript para construir interfaces de usuario
+- **Vite** - Herramienta de construcción rápida para desarrollo
+- **React Router DOM** - Navegación entre páginas
+- **React Hook Form** - Manejo eficiente de formularios
+- **React Hot Toast** - Notificaciones elegantes
+- **TailwindCSS** - Framework de CSS para estilos
+- **API REST** - Consumo de API externa para persistencia de datos
 
-### Estilos
-- **Tailwind CSS** - Framework de CSS utilitario
-- **CSS3** - Estilos personalizados y animaciones
+## 🚀 Instalación y Ejecución Local
 
-### API
-- **Fetch API** - Para comunicación con el backend
-- **RESTful API** - Arquitectura de la API (Retool API como backend)
+### Prerrequisitos
+
+Asegúrate de tener instalado:
+- [Node.js](https://nodejs.org/) (versión 16 o superior)
+- [npm](https://www.npmjs.com/) (incluido con Node.js)
+
+### Pasos para ejecutar el proyecto
+
+1. **Clona el repositorio**
+   ```bash
+   git clone [URL_DEL_REPOSITORIO]
+   cd recetario-chef-ricardo
+   ```
+
+2. **Abre el proyecto en Visual Studio Code**
+   ```bash
+   code .
+   ```
+
+3. **Abre la terminal integrada en VS Code**
+   - Usa el atajo `Ctrl + ` ` (backtick) o
+   - Ve a **Terminal > Nueva Terminal** en el menú
+
+4. **Instala las dependencias**
+   ```bash
+   npm i
+   ```
+   
+   Este comando instalará todas las dependencias necesarias listadas en `package.json`.
+
+5. **Inicia el servidor de desarrollo**
+   ```bash
+   npm run dev
+   ```
+
+6. **Abre tu navegador**
+   
+   El servidor se iniciará automáticamente y verás un mensaje similar a:
+   ```
+   ➜  Local:   http://localhost:5173/
+   ➜  Network: use --host to expose
+   ```
+   
+   Abre [http://localhost:5173/](http://localhost:5173/) en tu navegador.
 
 ## 📁 Estructura del Proyecto
 
 ```
 src/
-├── components/           # Componentes reutilizables
-│   ├── Button.jsx       # Botón principal
-│   ├── ButtonDelete.jsx # Botón de eliminación
-│   ├── InputFile.jsx    # Input para archivos (no utilizado actualmente)
-│   ├── InputText.jsx    # Input de texto
-│   ├── SelectInput.jsx  # Select dropdown
-│   ├── SubTitulo.jsx    # Componente de subtítulo
-│   ├── TextArea.jsx     # Área de texto
-│   └── Titulos.jsx      # Componente de título principal
-│
-├── hooks/               # Custom hooks
-│   ├── recipes/
-│   │   ├── useDataRecipe.jsx    # Hook para manejo de datos de recetas
-│   │   ├── useFetchRecipe.jsx   # Hook para obtener recetas de la API
-│   │   └── useRecipeAction.jsx  # Hook para acciones de recetas
-│   └── useImageChange.jsx       # Hook para manejo de imágenes (no utilizado)
-│
-├── pages/               # Páginas principales
-│   ├── Home.jsx         # Página principal con listado de recetas
-│   ├── Recipe.jsx       # Formulario para crear/editar recetas
-│   ├── Welcome.jsx      # Página de bienvenida
+├── components/          # Componentes reutilizables
+│   ├── Button.jsx      # Botón principal
+│   ├── ButtonDelete.jsx # Botón de eliminar
+│   ├── InputFile.jsx   # Input para archivos
+│   ├── InputText.jsx   # Input de texto
+│   ├── SelectInput.jsx # Select dropdown
+│   ├── SubTitulo.jsx   # Subtítulos
+│   ├── TextArea.jsx    # Área de texto
+│   └── Titulos.jsx     # Títulos principales
+├── hooks/              # Custom hooks
+│   ├── recipes/        # Hooks específicos para recetas
+│   └── useImageChange.jsx # Hook para manejo de imágenes
+├── pages/              # Páginas de la aplicación
+│   ├── Home.jsx        # Página principal con lista de recetas
+│   ├── Recipe.jsx      # Formulario para crear/editar recetas
+│   ├── Welcome.jsx     # Página de bienvenida
 │   └── PageNotFound.jsx # Página 404
-│
-├── utils/               # Utilidades
-│   └── apiUrl.jsx       # Configuración de URLs y opciones
-│
-├── assets/              # Recursos estáticos
-│   └── react.svg        # Logo de React
-│
-├── App.jsx              # Componente principal
-├── main.jsx             # Punto de entrada
-├── App.css              # Estilos específicos del componente App
-└── index.css            # Estilos globales
+├── utils/              # Utilidades y configuraciones
+│   └── apiUrl.jsx      # URL de la API y opciones
+└── App.jsx             # Componente principal con rutas
 ```
 
-## 📊 Estructura de Datos
+## 🌐 API
 
-### Modelo de Receta
+La aplicación utiliza una API REST externa para el almacenamiento de datos:
+- **Base URL**: `https://retoolapi.dev/DBFXqn/recetas`
+- **Métodos**: GET, POST, PUT, DELETE
+- **Datos**: JSON con estructura de recetas
+
+### Estructura de datos de una receta:
 ```javascript
 {
-  id: number,
-  platillo: string,           // Nombre del platillo
-  ingredientes: string,       // Lista de ingredientes
-  instrucciones: string,      // Pasos de preparación
-  tiempoPreparacion: number   // Tiempo en minutos
+  "id": "string",
+  "platillo": "string",
+  "ingredientes": "string",
+  "instrucciones": "string",
+  "tiempoPreparacion": "number"
 }
 ```
 
-### Opciones de Tiempo de Preparación
-- 15 minutos
-- 30 minutos
-- 45 minutos
-- 1 hora
-- 1 hora 30 minutos
-- 2 horas
-- 3 horas
-- 4+ horas
+## 📱 Rutas de la Aplicación
 
-## 🎯 Funcionalidades Detalladas
+- `/` - Página de bienvenida
+- `/home` - Lista de todas las recetas
+- `/recipes` - Formulario para crear nueva receta
+- `/recipes/:id` - Formulario para editar receta existente
 
-### 🏠 Página Principal (Home)
-- Listado completo de recetas en formato tabla
-- Botones de acción para editar y eliminar
-- Truncado inteligente de texto largo
-- Navegación hacia el formulario de creación
+## 🎯 Funcionalidades Principales
 
-### 📝 Formulario de Recetas
-- Creación y edición de recetas
-- Validación de campos requeridos
-- Manejo de errores con react-hook-form
-- Interfaz intuitiva con iconos y placeholders
+### ➕ Crear Receta
+1. Ve a la página de inicio (`/home`)
+2. Haz clic en "Agregar Nueva Receta"
+3. Completa el formulario con:
+   - Nombre del platillo
+   - Lista de ingredientes
+   - Instrucciones paso a paso
+   - Tiempo de preparación
+4. Haz clic en "Guardar Receta"
 
-### 🔔 Sistema de Notificaciones
-- Notificaciones toast para todas las acciones
-- Confirmación de eliminación
-- Feedback visual para operaciones exitosas/fallidas
+### ✏️ Editar Receta
+1. En la lista de recetas, haz clic en "Editar"
+2. Modifica los campos necesarios
+3. Haz clic en "Guardar Receta"
 
-## 🎨 Diseño y UX
+### 🗑️ Eliminar Receta
+1. En la lista de recetas, haz clic en "Eliminar"
+2. Confirma la acción en el modal
 
-### Tema Visual
-- **Colores principales**: Púrpura, rosa, azul (gradientes)
-- **Efectos**: Glassmorphism, sombras, hover effects
-- **Animaciones**: Bounce, pulse, scale transforms
-- **Tipografía**: System fonts con pesos variables
+## 🎨 Características de Diseño
 
-### Responsive Design
-- Mobile-first approach
-- Breakpoints de Tailwind CSS
-- Tabla responsive con scroll horizontal
-- Botones y formularios adaptables
+- **Gradientes modernos**: Colores vibrantes y atractivos
+- **Animaciones suaves**: Hover effects y transiciones
+- **Iconos emoji**: Interfaz amigable y divertida
+- **Glass morphism**: Efectos de cristal con backdrop-blur
+- **Responsive design**: Adaptado para todos los dispositivos
 
-## 🔍 Hooks Personalizados
+## 🔧 Scripts Disponibles
 
-### `useFetchRecipe`
-- Obtención de recetas desde la API
-- Estado de loading
-- Manejo de errores
-- Cache local de datos
+```bash
+# Desarrollo
+npm run dev          # Inicia servidor de desarrollo
 
-### `useDataRecipe`
-- Manejo del formulario de recetas
-- Lógica de creación/edición
-- Navegación automática
-- Reset de formularios
+# Construcción
+npm run build        # Construye la aplicación para producción
 
-### `useRecipeAction`
-- Acciones de eliminación
-- Confirmaciones de usuario
-- Navegación a edición
+# Vista previa
+npm run preview      # Previsualiza la construcción de producción
+
+# Linting
+npm run lint         # Ejecuta ESLint para verificar código
+```
+⭐ ¡Si te gusta este proyecto, no olvides darle una estrella!
